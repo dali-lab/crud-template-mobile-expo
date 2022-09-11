@@ -1,9 +1,15 @@
-import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
-import counterSlice from "./slices/counter";
+import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
+import connectionReducer from './slices/connectionSlice';
+import authReducer from './slices/authSlice';
+import resourcesReducer from './slices/resourcesSlice';
+import usersReducer from './slices/usersSlice';
 
 export const store = configureStore({
   reducer: {
-    counter: counterSlice,
+    connection: connectionReducer,
+    auth: authReducer,
+    resources: resourcesReducer,
+    users: usersReducer,
   },
 });
 

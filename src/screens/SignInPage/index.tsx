@@ -1,26 +1,29 @@
 import React, { useState } from 'react';
 import {
-  StyleSheet, SafeAreaView, Text, TouchableOpacity, TextInput,
+  SafeAreaView, Text, TouchableOpacity, TextInput,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import useAppDispatch from '../../hooks/useAppDispatch';
+import { signIn } from '../../redux/slices/authSlice';
 import GlobalStyle from '../../utils/GlobalStyle';
 
 const SignInPanel = () => {
   const navigation = useNavigation();
+  const dispatch = useAppDispatch();
   
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  /*
+  
   const handleSubmit = () => {
     // Send only if all fields filled in
-    if(email && password) {
-      signInUser(email, password).then(() => {
-        // console.log('authentication status:', authenticated);
-      });
+    if (!email) alert('Please enter an email address!');
+    else if (!password) alert('Please enter a password!');
+    else {
+      dispatch(signIn({ email, password }));
     }
   };
-  */
+
   return (
     <SafeAreaView style={GlobalStyle.container}>
       <Text>Login</Text>
@@ -38,18 +41,9 @@ const SignInPanel = () => {
         secureTextEntry
       />
       <TouchableOpacity
-        //onPress={handleSubmit}
+        onPress={handleSubmit}
       >
         <Text>Log in</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        //onPress={() => navigation.navigate('Sign Up')}
-      >
-        <Text>
-          Don&apos;t have an account?
-          {' '}
-          <Text>Sign up</Text>
-        </Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
