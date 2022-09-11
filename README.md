@@ -23,6 +23,12 @@ This repository is the default frontend starter for new DALI React projects. Ins
     ├── package.json           # npm config
     └── ...
 
+### Redux Debugging
+
+1. Download [react-native-debugger](https://github.com/jhen0409/react-native-debugger/releases) release
+2. Run `.exe` file
+3. Hook to port 19000
+
 ## Available Scripts
 
 In the project directory, you can run:

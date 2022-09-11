@@ -1,7 +1,7 @@
-import React from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
-import { useAppDispatch, useAppSelector } from "../app/hooks";
-import { decrement, increment } from "../features/counter/counter";
+import * as React from 'react';
+import { StyleSheet, Text, View, Button } from 'react-native';
+import { useAppDispatch, useAppSelector } from '../app/hooks';
+import { decrement, increment } from '../redux/slices/counter';
 
 const Base = () => {
   const count = useAppSelector((state) => state.counter.count);
@@ -22,10 +22,10 @@ const Base = () => {
       </View>
       <View style={styles.buttonContainer}>
         <View style={styles.button}>
-          <Button title="-" onPress={decrementHandler} />
+          <Button title='-' onPress={decrementHandler} />
         </View>
         <View style={styles.button}>
-          <Button title="+" onPress={incrementHandler} />
+          <Button title='+' onPress={incrementHandler} />
         </View>
       </View>
     </View>
@@ -35,24 +35,24 @@ const Base = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   count: {
     fontSize: 20,
   },
   counterView: {
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   buttonContainer: {
-    flexDirection: "row",
-    justifyContent: "space-around",
+    flexDirection: 'row',
+    justifyContent: 'space-around',
   },
   button: {
     fontSize: 16,
-    width: "20%",
+    width: '20%',
     marginHorizontal: 10,
     marginTop: 20,
   },
