@@ -41,9 +41,6 @@ export const setCredentials = createAsyncThunk(
     axios.defaults.headers.common[
       "Authorization"
     ] = `Bearer ${token}`; 
-    console.log(axios.defaults.headers.common[
-      "Authorization"
-    ]);
   }
 )
 
@@ -92,7 +89,7 @@ export const signIn = createAsyncThunk(
             verified: false,
           };
         }
-        dispatch(setCredentials(response.data.token))
+        dispatch(setCredentials(response.data.token));
         alert('Signed In!');
         return { ...response.data };
       })
@@ -137,6 +134,7 @@ export const logout = createAsyncThunk(
       .post(`${SERVER_URL}auth/logout`)
       .finally(() => dispatch(stopAuthLoading()))
       .then((response) => {
+        dispatch(setCredentials(''));
         return response.data;
       })
       .catch((err) => {
@@ -199,13 +197,9 @@ export const authSlice = createSlice({
     });
     builder.addCase(jwtSignIn.rejected, () => initialState);
     builder.addCase(logout.fulfilled, () => {
-      setBearerToken('');
-      axios.defaults.headers.common[
-        "Authorization"
-      ] = `Bearer ${''}`;
       alert('Logged out of account');
       return initialState;
-    })
+    });
     builder.addCase(resendCode.fulfilled, () => {
       alert('Code sent to your email');
     });
