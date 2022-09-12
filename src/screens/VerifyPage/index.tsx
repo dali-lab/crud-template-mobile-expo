@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import {
-  SafeAreaView, Text, TouchableOpacity, TextInput,
-} from 'react-native';
+import { SafeAreaView, Text } from 'react-native';
 import useAppSelector from '../../hooks/useAppSelector';
 import useAppDispatch from '../../hooks/useAppDispatch';
 import { resendCode, verify } from '../../redux/slices/authSlice';
+import AppTextInput from '../../components/AppTextInput';
+import AppButton from '../../components/AppButton';
 import FormatStyle from '../../utils/FormatStyle';
+import TextStyles from '../../utils/TextStyles';
 
 const VerifyPage = () => {
   const dispatch = useAppDispatch();
@@ -22,25 +23,22 @@ const VerifyPage = () => {
 
   return (
     <SafeAreaView style={FormatStyle.container}>
-      <Text>Verify</Text>
-      <Text>Code</Text>
-      <TextInput
+      <Text style={TextStyles.title}>Verify</Text>
+      <AppTextInput
         onChangeText={(text) => setCode(text)}
         value={code}
-        placeholder="Type your code"
+        placeholder='Type your code'
       />
-      <TouchableOpacity
+      <AppButton
         onPress={handleSubmit}
-      >
-        <Text>Submit</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
+        title={'Submit'}
+      />
+      <AppButton
         onPress={() => dispatch(resendCode({ id, email }))}
-      >
-        <Text>Resend Code</Text>
-      </TouchableOpacity>
+        title={'Resend Code'}
+      />
     </SafeAreaView>
   );
-}
+};
 
 export default VerifyPage;

@@ -3,6 +3,7 @@ import { SafeAreaView, ScrollView, Text, View } from 'react-native';
 import useAppSelector from '../../hooks/useAppSelector';
 import useAppDispatch from '../../hooks/useAppDispatch';
 import { createUser, getUser, updateUser, deleteUser, UserScopes } from '../../redux/slices/usersSlice';
+import { Picker } from '@react-native-picker/picker';
 import Accordion from '../../components/Accordion';
 import AppTextInput from '../../components/AppTextInput';
 import AppButton from '../../components/AppButton';
@@ -19,7 +20,7 @@ const UsersPage = () => {
     else {
       dispatch(getUser({ id: getId }));
     }
-  }
+  };
 
   const [createEmail, setCreateEmail] = useState<string>('');
   const [createPassword, setCreatePassword] = useState<string>('');
@@ -61,20 +62,20 @@ const UsersPage = () => {
   return (
     <SafeAreaView style={FormatStyle.container}>
       <ScrollView>
-        { loading ? 
-            <Text>Loading...</Text>
+        { loading
+          ? <Text>Loading...</Text>
           : (
             <>
-              <Accordion 
+              <Accordion
                 title='Get User'
               >
                 <View style={FormatStyle.innerContainer}>
                   {
-                    selectedUser 
+                    (selectedUser != null)
                       ? <Text style={TextStyles.regular}>Current selected user: {selectedUser.id}, {selectedUser.email}, {selectedUser.name}, {selectedUser.role}</Text>
                       : <Text style={TextStyles.regular}>No selected user currently.</Text>
                   }
-                  
+
                   <AppTextInput
                     onChangeText={(text) => setGetId(text)}
                     value={getId}
@@ -86,7 +87,7 @@ const UsersPage = () => {
                   />
                 </View>
               </Accordion>
-              <Accordion 
+              <Accordion
                 title='Create User'
               >
                 <View style={FormatStyle.innerContainer}>
@@ -111,7 +112,7 @@ const UsersPage = () => {
                   />
                 </View>
               </Accordion>
-              <Accordion 
+              <Accordion
                 title='Update User'
               >
                 <View style={FormatStyle.innerContainer}>
@@ -139,9 +140,19 @@ const UsersPage = () => {
                     onPress={handleUpdateUserSubmit}
                     title={'Update User'}
                   />
+                  <Picker
+                    selectedValue={updateRole}
+                    onValueChange={(itemValue, itemIndex) => {
+                      setUpdateRole(itemValue);
+                    }}
+                  >
+                    <Picker.Item label={UserScopes.Unverified} value={UserScopes.Unverified} />
+                    <Picker.Item label={UserScopes.User} value={UserScopes.User} />
+                    <Picker.Item label={UserScopes.Admin} value={UserScopes.Admin} />
+                  </Picker>
                 </View>
               </Accordion>
-              <Accordion 
+              <Accordion
                 title='Delete User'
               >
                 <View style={FormatStyle.innerContainer}>
@@ -162,6 +173,6 @@ const UsersPage = () => {
       </ScrollView>
     </SafeAreaView>
   );
-}
+};
 
 export default UsersPage;

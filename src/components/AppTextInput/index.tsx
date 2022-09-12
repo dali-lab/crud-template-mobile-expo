@@ -5,9 +5,9 @@ import TextStyles from '../../utils/TextStyles';
 
 interface AppButtonProps {
   onChangeText: (text: string) => void
-  value: string,
-  placeholder: string,
-  secureTextEntry?: boolean,
+  value: string
+  placeholder: string
+  secureTextEntry?: boolean
 }
 
 const AppTextInput = ({ onChangeText, value, placeholder, secureTextEntry }: AppButtonProps) => (
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     width: '75%',
     padding: 10,
-    textAlign: 'center'
+    textAlign: 'center',
   },
 });
 

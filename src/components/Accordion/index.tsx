@@ -6,8 +6,8 @@ import Colors from '../../utils/Colors';
 import TextStyles from '../../utils/TextStyles';
 
 interface AccordionProps {
-  title: string,
-  children: React.ReactNode,
+  title: string
+  children: React.ReactNode
 }
 
 const Accordion = ({ title, children }: AccordionProps) => {
@@ -23,10 +23,10 @@ const Accordion = ({ title, children }: AccordionProps) => {
         <Text style={styles.title}>{title}</Text>
         <AntDesign name={expanded ? 'minuscircleo' : 'pluscircleo'} size={30} color='white' />
       </TouchableOpacity>
-      { 
+      {
         expanded &&
           <View style={styles.child}>
-            {children}    
+            {children}
           </View>
       }
     </View>
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     // fontSize: 18,
     // fontWeight:'bold',
     color: 'white',
-    textTransform: "uppercase"
+    textTransform: 'uppercase',
   },
   outer: {
     justifyContent: 'center',
@@ -59,19 +59,19 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     backgroundColor: Colors.primary.normal,
     shadowColor: '#171717',
-    shadowOffset: {width: -2, height: 4},
+    shadowOffset: { width: -2, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 3,
   },
   parentHr: {
-    height:1,
+    height: 1,
     color: 'white',
-    width:'100%'
+    width: '100%',
   },
   child: {
     backgroundColor: 'white',
-    padding:16,
-  }
+    padding: 16,
+  },
 });
 
 export default Accordion;

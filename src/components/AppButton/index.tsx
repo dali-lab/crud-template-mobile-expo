@@ -5,9 +5,9 @@ import Colors from '../../utils/Colors';
 import TextStyles from '../../utils/TextStyles';
 
 interface AppButtonProps {
-  onPress: (event: GestureResponderEvent) => void,
-  title: string,
-  isArrow?: boolean,
+  onPress: (event: GestureResponderEvent) => void
+  title: string
+  isArrow?: boolean
 }
 
 const AppButton = ({ onPress, title, isArrow }: AppButtonProps) => (
@@ -28,19 +28,19 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     marginTop: 30,
     shadowColor: '#171717',
-    shadowOffset: {width: -2, height: 4},
+    shadowOffset: { width: -2, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 3,
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   appButtonText: {
     ...TextStyles.subTitle,
     color: 'white',
     alignSelf: 'center',
     textTransform: 'uppercase',
-  }
+  },
 });
 
 export default AppButton;

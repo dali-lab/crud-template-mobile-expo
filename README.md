@@ -1,12 +1,12 @@
-# Crud Template - Mobile - Redux Toolkit
+# CRUD Template - Mobile - Redux Toolkit
 
 This repository is the default frontend starter for new DALI React projects. Installation and setup instructions are included below. You should eventually customize this README file with project-specific documentation.
 
 ## Tech Stack
-- [React v18](https://reactjs.org/)
+- [Expo Go](https://expo.dev/client)
+- [React Native](https://reactnative.dev/)
 - [Redux Toolkit](https://redux-toolkit.js.org/)
 - [axios](https://github.com/axios/axios)
-- [React Router v6](https://reactrouter.com/en/main)
 
 ## Directory Structure
     .
@@ -23,35 +23,26 @@ This repository is the default frontend starter for new DALI React projects. Ins
     ├── package.json           # npm config
     └── ...
 
-### Redux Debugging
+## Setup
+
+1. clone repo and `yarn install`
+   - As of this writing there are issues with Expo and npm, so use yarn here
+2. Change `SERVER_URL` endpoint to exact IPv4 address + port
+   - You can view your IPv4 address by running `ipconfig` in command terminal
+   - If using the [crud-template-backend-postgres](https://github.com/dali-lab/crud-template-frontend-postgres), port is `9090`
+3. App should be ready for use now
+   - `yarn start` to run with hot reloading
+      - If you are getting "This is taking much longer than it should..." error, try doing `expo start --tunnel` instead. This error happens sometimes when trying to run on Dartmouth eduroam.
+
+#### Redux Debugging
 
 1. Download [react-native-debugger](https://github.com/jhen0409/react-native-debugger/releases) release
 2. Run `.exe` file
 3. Hook to port 19000
 
-## Available Scripts
+#### Linting
 
-In the project directory, you can run:
-
-### `npm install`
-
-Installs project dependencies.
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ESLint is set up in this project. To keep code clean, always remember to run `yarn run lint` and fix any lint problems before merging into master.
 
 ## Authors & Credits
 - Eric Lu '25
