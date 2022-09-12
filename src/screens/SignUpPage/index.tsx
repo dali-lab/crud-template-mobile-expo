@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import {
-  SafeAreaView, Text, TouchableOpacity, TextInput,
-} from 'react-native';
+import { SafeAreaView, Text } from 'react-native';
 import useAppDispatch from '../../hooks/useAppDispatch';
 import { signUp } from '../../redux/slices/authSlice';
 import AppTextInput from '../../components/AppTextInput';
@@ -11,7 +9,7 @@ import TextStyles from '../../utils/TextStyles';
 
 const SignUpPage = () => {
   const dispatch = useAppDispatch();
-  
+
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -64,6 +62,6 @@ const SignUpPage = () => {
       />
     </SafeAreaView>
   );
-}
+};
 
 export default SignUpPage;

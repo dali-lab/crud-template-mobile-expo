@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, SafeAreaView } from 'react-native'
+import { Text, SafeAreaView } from 'react-native';
 import FormatStyle from '../../utils/FormatStyle';
 import TextStyles from '../../utils/TextStyles';
 
@@ -13,7 +13,7 @@ const ErrorPage = () => {
         Could not connect to backend. (Is the backend running?)
       </Text>
     </SafeAreaView>
-  )
-}
+  );
+};
 
 export default ErrorPage;

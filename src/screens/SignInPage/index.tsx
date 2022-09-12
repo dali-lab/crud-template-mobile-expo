@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import {
-  SafeAreaView, Text, TouchableOpacity, TextInput,
-} from 'react-native';
+import { SafeAreaView, Text } from 'react-native';
 import useAppDispatch from '../../hooks/useAppDispatch';
 import { signIn } from '../../redux/slices/authSlice';
 import AppTextInput from '../../components/AppTextInput';
@@ -11,7 +9,7 @@ import TextStyles from '../../utils/TextStyles';
 
 const SignInPage = () => {
   const dispatch = useAppDispatch();
-  
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -31,21 +29,21 @@ const SignInPage = () => {
       <AppTextInput
         onChangeText={(text) => setEmail(text)}
         value={email}
-        placeholder="Type your email"
+        placeholder='Type your email'
       />
       <Text style={TextStyles.subTitle}>Password</Text>
       <AppTextInput
         onChangeText={(text) => setPassword(text)}
         value={password}
-        placeholder="Type your password"
+        placeholder='Type your password'
         secureTextEntry={true}
       />
       <AppButton
         onPress={handleSubmit}
-        title={"Log in"}
+        title={'Log in'}
       />
     </SafeAreaView>
   );
-}
+};
 
 export default SignInPage;

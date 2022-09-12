@@ -10,8 +10,7 @@ export const authTokenName = 'authToken';
 export async function getBearerToken() {
   try {
     return await AsyncStorage.getItem(authTokenName);
-  }
-  catch(e) {
+  } catch (e) {
     console.log('Error while getting bearer token: ', e);
   }
 }
@@ -21,10 +20,9 @@ export async function getBearerToken() {
  * @param {*} token - A valid JWT authentication token
  */
 export async function setBearerToken(token) {
-  try  {
+  try {
     await AsyncStorage.setItem(authTokenName, token);
-  }
-  catch(e) {
+  } catch (e) {
     console.log('Error while setting bearer token: ', e);
   }
 }
