@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice, isRejectedWithValue, PayloadAction } fro
 import { SERVER_URL } from '../../utils/constants.js';
 import { RootState, AppThunk } from '../store';
 import axios from 'axios';
-import { getBearerToken, setBearerToken } from '../../utils/localStorage.js';
+import { getBearerToken, setBearerToken } from '../../utils/asyncStorage.js';
 import { UserScopes } from './usersSlice';
 
 export interface AuthState {

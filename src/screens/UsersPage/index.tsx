@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import {
-  SafeAreaView, ScrollView, Text, TouchableOpacity, TextInput,
-} from 'react-native';
+import { SafeAreaView, ScrollView, Text, View } from 'react-native';
 import useAppSelector from '../../hooks/useAppSelector';
 import useAppDispatch from '../../hooks/useAppDispatch';
 import { createUser, getUser, updateUser, deleteUser, UserScopes } from '../../redux/slices/usersSlice';
-import GlobalStyle from '../../utils/FormatStyle';
+import Accordion from '../../components/Accordion';
+import AppTextInput from '../../components/AppTextInput';
+import AppButton from '../../components/AppButton';
+import FormatStyle from '../../utils/FormatStyle';
+import TextStyles from '../../utils/TextStyles';
 
 const UsersPage = () => {
   const { loading, selectedUser } = useAppSelector((state) => state.users);
@@ -57,83 +59,103 @@ const UsersPage = () => {
   };
 
   return (
-    <SafeAreaView style={GlobalStyle.container}>
+    <SafeAreaView style={FormatStyle.container}>
       <ScrollView>
         { loading ? 
             <Text>Loading...</Text>
           : (
             <>
-              {
-                selectedUser 
-                  ? <h5>Current selected user: {selectedUser.id}, {selectedUser.email}, {selectedUser.name}, {selectedUser.role}</h5>
-                  : <h5>Current selected user:</h5>
-              }
-              <Text>Get User</Text>
-              <TextInput
-                onChangeText={(text) => setGetId(text)}
-                value={getId}
-                placeholder="Type user id"
-              />
-              <TouchableOpacity
-                onPress={handleGetUserSubmit}
+              <Accordion 
+                title='Get User'
               >
-                <Text>Submit</Text>
-              </TouchableOpacity>
-              <Text>Create User</Text>
-              <TextInput
-                onChangeText={(text) => setCreateEmail(text)}
-                value={createEmail}
-                placeholder="Type email"
-              />
-              <TextInput
-                onChangeText={(text) => setCreatePassword(text)}
-                value={createPassword}
-                placeholder="Type password"
-              />
-              <TextInput
-                onChangeText={(text) => setCreateName(text)}
-                value={createName}
-                placeholder="Type name"
-              />
-              <TouchableOpacity
-                onPress={handleCreateUserSubmit}
+                <View style={FormatStyle.innerContainer}>
+                  {
+                    selectedUser 
+                      ? <Text style={TextStyles.regular}>Current selected user: {selectedUser.id}, {selectedUser.email}, {selectedUser.name}, {selectedUser.role}</Text>
+                      : <Text style={TextStyles.regular}>No selected user currently.</Text>
+                  }
+                  
+                  <AppTextInput
+                    onChangeText={(text) => setGetId(text)}
+                    value={getId}
+                    placeholder='Type user id'
+                  />
+                  <AppButton
+                    onPress={handleGetUserSubmit}
+                    title={'Get User'}
+                  />
+                </View>
+              </Accordion>
+              <Accordion 
+                title='Create User'
               >
-                <Text>Submit</Text>
-              </TouchableOpacity>
-              <Text>Update User</Text>
-              <TextInput
-                onChangeText={(text) => setUpdateId(text)}
-                value={updateId}
-                placeholder="Type id"
-              />
-              <TextInput
-                onChangeText={(text) => setUpdateEmail(text)}
-                value={updateEmail}
-                placeholder="Type email"
-              />
-              <TextInput
-                onChangeText={(text) => setUpdatePassword(text)}
-                value={updatePassword}
-                placeholder="Type password"
-              />
-              <TextInput
-                onChangeText={(text) => setUpdateName(text)}
-                value={updateName}
-                placeholder="Type name"
-              />
-
-
-              <Text>Delete User</Text>
-              <TextInput
-                onChangeText={(text) => setDeleteId(text)}
-                value={deleteId}
-                placeholder="Type id"
-              />
-              <TouchableOpacity
-                onPress={handleDeleteUserSubmit}
+                <View style={FormatStyle.innerContainer}>
+                  <AppTextInput
+                    onChangeText={(text) => setCreateEmail(text)}
+                    value={createEmail}
+                    placeholder='Type email'
+                  />
+                  <AppTextInput
+                    onChangeText={(text) => setCreatePassword(text)}
+                    value={createPassword}
+                    placeholder='Type password'
+                  />
+                  <AppTextInput
+                    onChangeText={(text) => setCreateName(text)}
+                    value={createName}
+                    placeholder='Type name'
+                  />
+                  <AppButton
+                    onPress={handleCreateUserSubmit}
+                    title={'Create User'}
+                  />
+                </View>
+              </Accordion>
+              <Accordion 
+                title='Update User'
               >
-                <Text>Submit</Text>
-              </TouchableOpacity>
+                <View style={FormatStyle.innerContainer}>
+                  <AppTextInput
+                    onChangeText={(text) => setUpdateId(text)}
+                    value={updateId}
+                    placeholder='Type id'
+                  />
+                  <AppTextInput
+                    onChangeText={(text) => setUpdateEmail(text)}
+                    value={updateEmail}
+                    placeholder='Type email'
+                  />
+                  <AppTextInput
+                    onChangeText={(text) => setUpdatePassword(text)}
+                    value={updatePassword}
+                    placeholder='Type password'
+                  />
+                  <AppTextInput
+                    onChangeText={(text) => setUpdateName(text)}
+                    value={updateName}
+                    placeholder='Type name'
+                  />
+                  <AppButton
+                    onPress={handleUpdateUserSubmit}
+                    title={'Update User'}
+                  />
+                </View>
+              </Accordion>
+              <Accordion 
+                title='Delete User'
+              >
+                <View style={FormatStyle.innerContainer}>
+                  <AppTextInput
+                    onChangeText={(text) => setDeleteId(text)}
+                    value={deleteId}
+                    placeholder='Type id'
+                  />
+                  <AppButton
+                    onPress={handleDeleteUserSubmit}
+                    title={'Delete User'}
+                  />
+                </View>
+              </Accordion>
             </>
           )
         }
