@@ -29,7 +29,7 @@ This repository is the default frontend starter for new DALI React projects. Ins
    - As of this writing there are issues with Expo and npm, so use yarn here
 2. Change `SERVER_URL` endpoint to exact IPv4 address + port
    - You can view your IPv4 address by running `ipconfig` in command terminal
-   - If using the [crud-template-backend-postgres](https://github.com/dali-lab/crud-template-frontend-postgres), port is `9090`
+   - If using the [crud-template-backend-postgres](https://github.com/dali-lab/crud-template-backend-postgres), port is `9090`
 3. App should be ready for use now
    - `yarn start` to run with hot reloading
       - If you are getting "This is taking much longer than it should..." error, try doing `expo start --tunnel` instead. This error happens sometimes when trying to run on Dartmouth eduroam.
