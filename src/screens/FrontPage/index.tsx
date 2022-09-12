@@ -1,13 +1,13 @@
 import React from 'react';
-import { Text, ScrollView, SafeAreaView } from 'react-native';
+import { Image, ScrollView, SafeAreaView, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import useAppDispatch from '../../hooks/useAppDispatch';
 import { logout } from '../../redux/slices/authSlice';
 import AppButton from '../../components/AppButton';
 import FormatStyle from '../../utils/FormatStyle';
 import NavType from '../../utils/NavType';
-import TextStyles from '../../utils/TextStyles';
 import { ROUTES } from '../../utils/constants';
+import LogoImage from '../../assets/dali_dark.png';
 
 const FrontPage = () => {
   const navigation = useNavigation<NavType>();
@@ -16,7 +16,13 @@ const FrontPage = () => {
   return (
     <SafeAreaView style={FormatStyle.container}>
       <ScrollView>
-        <Text style={TextStyles.title}>DALI Crud Template</Text>
+        <Image
+          style={{
+            width: Dimensions.get('window').width,
+            height: Dimensions.get('window').width * (3 / 7),
+          }}
+          source={{ uri: Image.resolveAssetSource(LogoImage).uri }}
+        />
         <AppButton
           onPress={() => navigation.navigate(ROUTES.SIGNIN)}
           title={'Sign In'}
