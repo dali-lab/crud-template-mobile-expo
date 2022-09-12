@@ -5,7 +5,7 @@ import {
 import useAppSelector from '../../hooks/useAppSelector';
 import useAppDispatch from '../../hooks/useAppDispatch';
 import { resendCode, verify } from '../../redux/slices/authSlice';
-import GlobalStyle from '../../utils/FormatStyle';
+import FormatStyle from '../../utils/FormatStyle';
 
 const VerifyPage = () => {
   const dispatch = useAppDispatch();
@@ -21,7 +21,7 @@ const VerifyPage = () => {
   };
 
   return (
-    <SafeAreaView style={GlobalStyle.container}>
+    <SafeAreaView style={FormatStyle.container}>
       <Text>Verify</Text>
       <Text>Code</Text>
       <TextInput

@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, TouchableOpacity, Button, ScrollView, SafeAreaView } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import AppButton from '../../components/AppButton';
-import GlobalStyle from '../../utils/FormatStyle';
+import FormatStyle from '../../utils/FormatStyle';
 import NavType from '../../utils/NavType';
 import TextStyles from '../../utils/TextStyles';
 
@@ -10,7 +10,7 @@ const FrontPage = () => {
   const navigation = useNavigation<NavType>();
   
   return (
-    <SafeAreaView style={GlobalStyle.container}>
+    <SafeAreaView style={FormatStyle.container}>
       <ScrollView>
         <Text style={TextStyles.title}>DALI Crud Template</Text>
         <AppButton

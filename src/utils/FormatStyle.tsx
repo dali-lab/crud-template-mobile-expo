@@ -1,11 +1,18 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
 
-const GlobalStyle = StyleSheet.create({
+const FormatStyle = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+
+  innerContainer: {
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    width: Dimensions.get('window').width * (6 / 7),
+    paddingBottom: 0,
   },
 
   button: {
@@ -36,4 +43,4 @@ const GlobalStyle = StyleSheet.create({
   }
 });
 
-export default GlobalStyle;
+export default FormatStyle;

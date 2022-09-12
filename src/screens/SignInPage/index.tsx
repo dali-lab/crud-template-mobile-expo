@@ -6,7 +6,7 @@ import useAppDispatch from '../../hooks/useAppDispatch';
 import { signIn } from '../../redux/slices/authSlice';
 import AppTextInput from '../../components/AppTextInput';
 import AppButton from '../../components/AppButton';
-import GlobalStyle from '../../utils/FormatStyle';
+import FormatStyle from '../../utils/FormatStyle';
 import TextStyles from '../../utils/TextStyles';
 
 const SignInPage = () => {
@@ -25,7 +25,7 @@ const SignInPage = () => {
   };
 
   return (
-    <SafeAreaView style={GlobalStyle.container}>
+    <SafeAreaView style={FormatStyle.container}>
       <Text style={TextStyles.title}>Login</Text>
       <Text style={TextStyles.subTitle}>Email</Text>
       <AppTextInput

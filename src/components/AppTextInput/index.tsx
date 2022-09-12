@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, TextInput } from 'react-native';
-
+import Colors from '../../utils/Colors';
 import TextStyles from '../../utils/TextStyles';
 
 interface AppButtonProps {
@@ -15,6 +15,7 @@ const AppTextInput = ({ onChangeText, value, placeholder, secureTextEntry }: App
     onChangeText={onChangeText}
     value={value}
     placeholder={placeholder}
+    placeholderTextColor={Colors.neutral[4]}
     style={styles.appTextInputContainer}
     secureTextEntry={(secureTextEntry === null || secureTextEntry === undefined) ? false : secureTextEntry}
   />

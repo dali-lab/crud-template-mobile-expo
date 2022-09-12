@@ -26,7 +26,7 @@ const Accordion = ({ title, children }: AccordionProps) => {
       { 
         expanded &&
           <View style={styles.child}>
-            <Text style={TextStyles.small}>{children}</Text>    
+            {children}    
           </View>
       }
     </View>
