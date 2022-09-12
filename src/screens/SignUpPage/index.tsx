@@ -4,7 +4,10 @@ import {
 } from 'react-native';
 import useAppDispatch from '../../hooks/useAppDispatch';
 import { signUp } from '../../redux/slices/authSlice';
-import GlobalStyle from '../../utils/GlobalStyle';
+import AppTextInput from '../../components/AppTextInput';
+import AppButton from '../../components/AppButton';
+import GlobalStyle from '../../utils/FormatStyle';
+import TextStyles from '../../utils/TextStyles';
 
 const SignUpPage = () => {
   const dispatch = useAppDispatch();
@@ -28,38 +31,37 @@ const SignUpPage = () => {
 
   return (
     <SafeAreaView style={GlobalStyle.container}>
-      <Text>Sign Up</Text>
-      <Text>Name</Text>
-      <TextInput
+      <Text style={TextStyles.title}>Sign Up</Text>
+      <Text style={TextStyles.subTitle}>Name</Text>
+      <AppTextInput
         onChangeText={(text) => setName(text)}
         value={name}
-        placeholder="Name"
+        placeholder='Name'
       />
-      <Text>Email</Text>
-      <TextInput
+      <Text style={TextStyles.subTitle}>Email</Text>
+      <AppTextInput
         onChangeText={(text) => setEmail(text)}
         value={email}
-        placeholder="Email"
+        placeholder='Email'
       />
-      <Text>Password</Text>
-      <TextInput
+      <Text style={TextStyles.subTitle}>Password</Text>
+      <AppTextInput
         onChangeText={(text) => setPassword(text)}
         value={password}
-        placeholder="Password"
-        secureTextEntry
+        placeholder='Password'
+        secureTextEntry={true}
       />
-      <Text>Confirm Password</Text>
-      <TextInput
+      <Text style={TextStyles.subTitle}>Confirm Password</Text>
+      <AppTextInput
         onChangeText={(text) => setConfirmPassword(text)}
         value={confirmPassword}
-        placeholder="Confirm Password"
+        placeholder='Confirm Password'
         secureTextEntry
       />
-      <TouchableOpacity
+      <AppButton
         onPress={handleSubmit}
-      >
-        <Text>Sign Up</Text>
-      </TouchableOpacity>
+        title={'Sign Up'}
+      />
     </SafeAreaView>
   );
 }
