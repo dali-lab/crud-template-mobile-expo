@@ -1,8 +1,10 @@
 import React from 'react';
 import { Text, TouchableOpacity, Button, ScrollView, SafeAreaView } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
-import GlobalStyle from '../../utils/GlobalStyle';
+import AppButton from '../../components/AppButton';
+import GlobalStyle from '../../utils/FormatStyle';
 import NavType from '../../utils/NavType';
+import TextStyles from '../../utils/TextStyles';
 
 const FrontPage = () => {
   const navigation = useNavigation<NavType>();
@@ -10,34 +12,40 @@ const FrontPage = () => {
   return (
     <SafeAreaView style={GlobalStyle.container}>
       <ScrollView>
-        <Text>DALI Crud Template</Text>
-        <TouchableOpacity 
-          style={GlobalStyle.button}
+        <Text style={TextStyles.title}>DALI Crud Template</Text>
+        <AppButton
           onPress={() => navigation.navigate('Sign In')}
-        > 
-          <Text style={GlobalStyle.lf}>Sign In</Text>
-        </TouchableOpacity>
-        <TouchableOpacity 
-          style={GlobalStyle.button}
+          title={'Sign In'}
+          isArrow={true}
+        />
+        <AppButton
           onPress={() => navigation.navigate('Sign Up')}
-        > 
-          <Text style={GlobalStyle.lf}>Sign Up</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={GlobalStyle.button}> 
-          <Text style={GlobalStyle.lf}>Verify</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={GlobalStyle.button}> 
-          <Text style={GlobalStyle.lf}>Users (admin only)</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={GlobalStyle.button}> 
-          <Text style={GlobalStyle.lf}>Resources (user or admin)</Text>
-        </TouchableOpacity>
-        <Button title='Logout' onPress={() => console.log()} />
+          title={'Sign Up'}
+          isArrow={true}
+        />
+        <AppButton
+          onPress={() => navigation.navigate('Verify')}
+          title={'Verify'}
+          isArrow={true}
+        />
+        <AppButton
+          onPress={() => navigation.navigate('Users')}
+          title={'Users (admin only)'}
+          isArrow={true}
+        />
+        <AppButton
+          onPress={() => navigation.navigate('Resources')}
+          title={'Resources (user or admin)'}
+          isArrow={true}
+        />
+        <AppButton
+          onPress={() => console.log('logout')}
+          title={'Logout'}
+          isArrow={true}
+        />
       </ScrollView>
     </SafeAreaView>
   )
 }
-
-// onPress={() => navigation.navigate('Sign In')}
 
 export default FrontPage;

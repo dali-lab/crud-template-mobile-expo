@@ -2,9 +2,7 @@ import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useAppDispatch } from './app/hooks';
-import FrontPage from '../src/screens/FrontPage';
-import SignInPage from '../src/screens/SignInPage';
-import SignUpPage from '../src/screens/SignUpPage';
+import { FrontPage, SignInPage, SignUpPage } from './screens';
 import { initCredentials } from './redux/slices/authSlice';
 
 const Index = () => {
