@@ -142,7 +142,7 @@ const UsersPage = () => {
                   />
                   <Picker
                     selectedValue={updateRole}
-                    onValueChange={(itemValue, itemIndex) => {
+                    onValueChange={(itemValue) => {
                       setUpdateRole(itemValue);
                     }}
                   >

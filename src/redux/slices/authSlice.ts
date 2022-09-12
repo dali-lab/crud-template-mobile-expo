@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/indent */
 import { createAsyncThunk, createSlice, isRejectedWithValue } from '@reduxjs/toolkit';
 import { SERVER_URL } from '../../utils/constants.js';
 import axios from 'axios';
@@ -43,7 +44,7 @@ export const setCredentials = createAsyncThunk(
 
 export const initCredentials = createAsyncThunk(
   'initCredentials',
-  async (req: {}, { dispatch }) => {
+  async (req: unknown, { dispatch }) => {
     await getBearerToken().then((token: string) => {
       if (token) {
         dispatch(setCredentials(token));
@@ -72,7 +73,7 @@ export const signUp = createAsyncThunk(
 
 export const signIn = createAsyncThunk(
   'auth/signin',
-  async (credentials: { email: string, password: string }, { dispatch, getState }) => {
+  async (credentials: { email: string, password: string }, { dispatch }) => {
     dispatch(startAuthLoading());
     return axios
       .post<LoginResponse>(`${SERVER_URL}auth/signin`, credentials)
@@ -107,7 +108,7 @@ export const jwtSignIn = createAsyncThunk(
       .get<LoginResponse>(`${SERVER_URL}auth/jwt-signin/`, {
         headers: {
           Authorization: `Bearer ${token}`,
-        }
+        },
       })
       .finally(() => dispatch(stopAuthLoading()))
       .then((response) => {
@@ -124,7 +125,7 @@ export const jwtSignIn = createAsyncThunk(
 
 export const logout = createAsyncThunk(
   'auth/logout',
-  async (req: {}, { dispatch }) => {
+  async (req: unknown, { dispatch }) => {
     dispatch(startAuthLoading());
     return axios
       .post(`${SERVER_URL}auth/logout`)

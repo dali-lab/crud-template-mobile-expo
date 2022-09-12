@@ -27,7 +27,7 @@ const initialState: ResourceState = {
 
 export const getAllResources = createAsyncThunk(
   'resources/getAllResources',
-  async (req: {}, { dispatch }) => {
+  async (req: unknown, { dispatch }) => {
     dispatch(startResourceLoading());
     return axios
       .get<IResource[]>(`${SERVER_URL}resources/`)
