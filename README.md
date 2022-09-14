@@ -7,6 +7,7 @@ This repository is an optional frontend starter for new DALI React projects. Ins
 - [React Native](https://reactnative.dev/)
 - [Redux Toolkit](https://redux-toolkit.js.org/)
 - [axios](https://github.com/axios/axios)
+- [TypeScript](https://www.typescriptlang.org/docs/)
 
 ## Directory Structure
     .
