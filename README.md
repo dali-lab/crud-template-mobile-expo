@@ -1,6 +1,6 @@
 # CRUD Template - Mobile Frontend - Expo - Redux Toolkit
 
-This repository is the default frontend starter for new DALI React projects. Installation and setup instructions are included below. You should eventually customize this README file with project-specific documentation.
+This repository is an optional frontend starter for new DALI React projects. Installation and setup instructions are included below. You should eventually customize this README file with project-specific documentation.
 
 ## Tech Stack
 - [Expo Go](https://expo.dev/client)
