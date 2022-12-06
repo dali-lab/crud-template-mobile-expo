@@ -1,10 +1,10 @@
 import React from 'react';
-import { ROUTES } from '../../utils/constants';
 import { createStackNavigator } from '@react-navigation/stack';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native'; 
 import { LaunchPage, SignInPage, SignUpPage } from '../../screens/AuthScreens';
+import { AuthStackRoutes, AuthNavigationList } from '../routeTypes';
 
-const AuthStack = createStackNavigator();
+const AuthStack = createStackNavigator<AuthNavigationList>();
 
 const AuthNavigation = () => {
   return (
@@ -12,9 +12,9 @@ const AuthNavigation = () => {
       <AuthStack.Navigator
         screenOptions={{ header: () => null }}
       >
-        <AuthStack.Screen name={ROUTES.LAUNCH} component={LaunchPage} />
-        <AuthStack.Screen name={ROUTES.SIGNIN} component={SignInPage} />
-        <AuthStack.Screen name={ROUTES.SIGNUP} component={SignUpPage} />
+        <AuthStack.Screen name={AuthStackRoutes.LAUNCH} component={LaunchPage} />
+        <AuthStack.Screen name={AuthStackRoutes.SIGNIN} component={SignInPage} />
+        <AuthStack.Screen name={AuthStackRoutes.SIGNUP} component={SignUpPage} />
       </AuthStack.Navigator>
     </NavigationContainer>
   );

@@ -1,11 +1,11 @@
 import React from 'react';
-import { Image, ScrollView, SafeAreaView, Dimensions } from 'react-native';
+import { ScrollView, SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import AppButton from '../../../components/AppButton';
 import FormatStyle from '../../../utils/FormatStyle';
 import NavType from '../../../utils/NavType';
-import { ROUTES } from '../../../utils/constants';
-import LogoImage from '../../../assets/dali_dark.png';
+import { AuthStackRoutes } from '../../../navigation/routeTypes';
+import LogoImage from '../../../assets/dali_dark.svg';
 
 const FrontPage = () => {
   const navigation = useNavigation<NavType>();
@@ -13,20 +13,19 @@ const FrontPage = () => {
   return (
     <SafeAreaView style={FormatStyle.container}>
       <ScrollView>
-        <Image
+        <LogoImage
           style={{
-            width: Dimensions.get('window').width,
-            height: Dimensions.get('window').width * (3 / 7),
+            width: 309,
+            height: 117,
           }}
-          source={{ uri: Image.resolveAssetSource(LogoImage).uri }}
         />
         <AppButton
-          onPress={() => navigation.navigate(ROUTES.SIGNIN)}
+          onPress={() => navigation.navigate(AuthStackRoutes.SIGNIN)}
           title={'Sign In'}
           isArrow={true}
         />
         <AppButton
-          onPress={() => navigation.navigate(ROUTES.SIGNUP)}
+          onPress={() => navigation.navigate(AuthStackRoutes.SIGNUP)}
           title={'Sign Up'}
           isArrow={true}
         />
