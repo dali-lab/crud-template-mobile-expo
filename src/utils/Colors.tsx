@@ -8,6 +8,7 @@ export default {
     light: '#E0F2E1',
     normal: '#A7DBAA',
     dark: '#69CD6F',
+    white: '#FFFFFF',
   },
   neutral: {
     1: '#E2E7EC',
