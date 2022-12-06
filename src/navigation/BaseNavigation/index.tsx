@@ -1,15 +1,15 @@
 import React from 'react';
 import { Text } from 'react-native';
-import { ROUTES } from '../../utils/constants';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { AntDesign, Octicons, Ionicons } from '@expo/vector-icons';
 import useAppSelector from '../../hooks/useAppSelector';
 import { UserScopes } from '../../redux/slices/usersSlice';
 import { FrontPage, ResourcesPage, UsersPage, ForbiddenPage } from '../../screens/BaseScreens';
+import { BaseTabRoutes, BaseNavigationList } from '../routeTypes';
 import Colors from '../../utils/Colors';
 
-const BaseTab = createBottomTabNavigator();
+const BaseTab = createBottomTabNavigator<BaseNavigationList>();
 
 const ProtectedRoute = (allowableScopes: UserScopes[]) => {
   const { authenticated, role } = useAppSelector((state) => state.auth);
@@ -29,10 +29,10 @@ const BaseNavigation = () => {
           tabBarActiveTintColor: Colors.secondary.white,
           tabBarInactiveTintColor: Colors.neutral[8],
         }}
-        initialRouteName={ROUTES.FRONT}
+        initialRouteName={BaseTabRoutes.FRONT}
       >
         <BaseTab.Screen
-          name={ROUTES.FRONT}
+          name={BaseTabRoutes.FRONT}
           component={FrontPage}
           options={{
             tabBarLabel: (props) => {
@@ -46,7 +46,7 @@ const BaseNavigation = () => {
           }}
         />
         <BaseTab.Screen
-          name={ROUTES.USERS}
+          name={BaseTabRoutes.USERS}
           component={
             ProtectedRoute([UserScopes.Admin])
               ? UsersPage
@@ -64,7 +64,7 @@ const BaseNavigation = () => {
           }}
         />
         <BaseTab.Screen
-          name={ROUTES.RESOURCES}
+          name={BaseTabRoutes.RESOURCES}
           component={
             ProtectedRoute([UserScopes.User, UserScopes.Admin])
               ? ResourcesPage

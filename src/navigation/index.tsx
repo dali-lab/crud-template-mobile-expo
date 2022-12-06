@@ -4,14 +4,14 @@ import useAppSelector from '../hooks/useAppSelector';
 import useAppDispatch from '../hooks/useAppDispatch';
 import { UserScopes } from '../redux/slices/usersSlice';
 import { checkConnection } from '../redux/slices/connectionSlice';
-import { initCredentials } from '../redux/slices/authSlice';
+import { initCredentials, jwtSignIn } from '../redux/slices/authSlice';
 import { VerifyPage } from '../screens/AuthScreens';
 import AuthNavigation from './AuthNavigation';
 import BaseNavigation from './BaseNavigation';
 
 const RootNavigation = () => {
-  const { authenticated } = useAppSelector((state) => state.auth);
-  const { role } = useAppSelector((state) => state.auth);
+  const { isConnected } = useAppSelector((state) => state.connection);
+  const { authenticated, role } = useAppSelector((state) => state.auth);
   
   const dispatch = useAppDispatch();
   useEffect(() => {
@@ -20,6 +20,12 @@ const RootNavigation = () => {
   useEffect(() => {
     dispatch(initCredentials({})).finally(() => { });
   }, []);
+  // When the app loads, try to log in with token stored in async storage
+  useEffect(() => {
+    if (isConnected) {
+      dispatch(jwtSignIn({}));
+    }
+  }, [isConnected]);
   
   if (!authenticated) {
     return (
