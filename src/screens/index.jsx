@@ -1,19 +1,24 @@
-import ErrorPage from './ErrorPage';
-import ForbiddenPage from './ForbiddenPage';
-import FrontPage from './FrontPage';
-import ResourcesPage from './ResourcesPage';
-import SignInPage from './SignInPage';
-import SignUpPage from './SignUpPage';
-import UsersPage from './UsersPage';
-import VerifyPage from './VerifyPage';
+import {
+  SignInPage,
+  SignUpPage,
+  LaunchPage,
+  VerifyPage,
+} from './AuthScreens';
+
+import { 
+  FrontPage,
+  ResourcesPage,
+  UsersPage,
+  ForbiddenPage,
+} from './BaseScreens';
 
 export { 
-  ErrorPage, 
-  ForbiddenPage, 
+  SignInPage,
+  SignUpPage,
+  LaunchPage,
+  VerifyPage,
   FrontPage, 
   ResourcesPage, 
-  SignInPage, 
-  SignUpPage, 
-  UsersPage, 
-  VerifyPage 
+  UsersPage,
+  ForbiddenPage,
 };

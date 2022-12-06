@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { SafeAreaView, Text } from 'react-native';
-import useAppDispatch from '../../hooks/useAppDispatch';
-import { signUp } from '../../redux/slices/authSlice';
-import AppTextInput from '../../components/AppTextInput';
-import AppButton from '../../components/AppButton';
-import FormatStyle from '../../utils/FormatStyle';
-import TextStyles from '../../utils/TextStyles';
+import useAppDispatch from '../../../hooks/useAppDispatch';
+import { signUp } from '../../../redux/slices/authSlice';
+import AppTextInput from '../../../components/AppTextInput';
+import AppButton from '../../../components/AppButton';
+import FormatStyle from '../../../utils/FormatStyle';
+import TextStyles from '../../../utils/TextStyles';
 
 const SignUpPage = () => {
   const dispatch = useAppDispatch();

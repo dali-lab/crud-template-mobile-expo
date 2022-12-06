@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, SafeAreaView } from 'react-native';
-import FormatStyle from '../../utils/FormatStyle';
-import TextStyles from '../../utils/TextStyles';
+import FormatStyle from '../../../utils/FormatStyle';
+import TextStyles from '../../../utils/TextStyles';
 
 const ForbiddenPage = () => {
   return (

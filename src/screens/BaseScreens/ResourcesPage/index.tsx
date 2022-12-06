@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import { Text, SafeAreaView, ScrollView, View } from 'react-native';
-import useAppSelector from '../../hooks/useAppSelector';
-import useAppDispatch from '../../hooks/useAppDispatch';
+import useAppSelector from '../../../hooks/useAppSelector';
+import useAppDispatch from '../../../hooks/useAppDispatch';
 import {
   getAllResources,
   createResource,
   updateResource,
   deleteResource,
   IResource,
-} from '../../redux/slices/resourcesSlice';
-import Accordion from '../../components/Accordion';
-import AppTextInput from '../../components/AppTextInput';
-import AppButton from '../../components/AppButton';
-import FormatStyle from '../../utils/FormatStyle';
-import TextStyles from '../../utils/TextStyles';
+} from '../../../redux/slices/resourcesSlice';
+import Accordion from '../../../components/Accordion';
+import AppTextInput from '../../../components/AppTextInput';
+import AppButton from '../../../components/AppButton';
+import FormatStyle from '../../../utils/FormatStyle';
+import TextStyles from '../../../utils/TextStyles';
 
 const ResourcesPage = () => {
   const { loading, all } = useAppSelector((state) => state.resources);
@@ -70,7 +70,7 @@ const ResourcesPage = () => {
                     title={'Get All Resources'}
                   />
                   {
-                    Object.values(all).map((r: IResource) => <Text style={TextStyles.regular}>{r.id}, {r.title}, {r.description}, {r.value}</Text>)
+                    Object.values(all).map((r: IResource) => <Text key={r.id} style={TextStyles.regular}>{r.id}, {r.title}, {r.description}, {r.value}</Text>)
                   }
                 </View>
               </Accordion>
