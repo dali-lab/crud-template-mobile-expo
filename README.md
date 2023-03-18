@@ -40,7 +40,7 @@ We are using [typically a configuration like [CS52's React-Native ESLint Configu
     │   └── types              # TS types
     │   └── utils              # utility folder containing helper files
     ├── tsconfig.json          # TypeScript configuration
-    ├── package.json           # npm config
+    ├── package.json           # yarn config
     └── ...
 
 For more detailed documentation on our file structure and specific functions in the code, feel free to check the project files themselves.
@@ -63,7 +63,7 @@ For more detailed documentation on our file structure and specific functions in 
 
 #### Linting
 
-ESLint is set up in this project. To keep code clean, always remember to run `npm run lint` and fix any lint problems before merging into master.
+ESLint is set up in this project. To keep code clean, always remember to run `yarn run lint` and fix any lint problems before merging into master.
 
 ## Deployment
 [Where is the app deployed? i.e. Expo, Surge, TestFlight etc.]
