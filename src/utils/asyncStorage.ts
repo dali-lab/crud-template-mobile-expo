@@ -19,7 +19,7 @@ export async function getBearerToken() {
  * Sets a returned token in AsyncStorage for attachment to later network requests
  * @param {*} token - A valid JWT authentication token
  */
-export async function setBearerToken(token) {
+export async function setBearerToken(token: string) {
   try {
     await AsyncStorage.setItem(authTokenName, token);
   } catch (e) {

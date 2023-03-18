@@ -7,8 +7,8 @@ import {
   createResource,
   updateResource,
   deleteResource,
-  IResource,
 } from '../../../redux/slices/resourcesSlice';
+import { IResource } from 'types/resources';
 import Accordion from '../../../components/Accordion';
 import AppTextInput from '../../../components/AppTextInput';
 import AppButton from '../../../components/AppButton';

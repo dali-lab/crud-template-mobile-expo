@@ -1,4 +1,4 @@
-import { NavigatorScreenParams } from '@react-navigation/native';
+// import { NavigatorScreenParams } from '@react-navigation/native';
 // Use NavigatorScreenParams to nest navigators within navigators
 
 export enum AuthStackRoutes {
