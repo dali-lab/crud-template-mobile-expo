@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { SafeAreaView, ScrollView, Text, View } from 'react-native';
 import useAppSelector from '../../../hooks/useAppSelector';
 import useAppDispatch from '../../../hooks/useAppDispatch';
-import { createUser, getUser, updateUser, deleteUser, UserScopes } from '../../../redux/slices/usersSlice';
+import { createUser, getUser, updateUser, deleteUser } from '../../../redux/slices/usersSlice';
+import { UserScopes } from 'types/users';
 import Accordion from '../../../components/Accordion';
 import AppTextInput from '../../../components/AppTextInput';
 import AppButton from '../../../components/AppButton';
@@ -169,13 +170,13 @@ export default UsersPage;
 
 /*
 <Picker
-                    selectedValue={updateRole}
-                    onValueChange={(itemValue) => {
-                      setUpdateRole(itemValue);
-                    }}
-                  >
-                    <Picker.Item label={UserScopes.Unverified} value={UserScopes.Unverified} />
-                    <Picker.Item label={UserScopes.User} value={UserScopes.User} />
-                    <Picker.Item label={UserScopes.Admin} value={UserScopes.Admin} />
-                  </Picker>
+  selectedValue={updateRole}
+  onValueChange={(itemValue) => {
+    setUpdateRole(itemValue);
+  }}
+>
+  <Picker.Item label={UserScopes.Unverified} value={UserScopes.Unverified} />
+  <Picker.Item label={UserScopes.User} value={UserScopes.User} />
+  <Picker.Item label={UserScopes.Admin} value={UserScopes.Admin} />
+</Picker>
 */

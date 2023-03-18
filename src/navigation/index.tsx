@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import useAppSelector from '../hooks/useAppSelector';
-import useAppDispatch from '../hooks/useAppDispatch';
-import { UserScopes } from '../redux/slices/usersSlice';
-import { checkConnection } from '../redux/slices/connectionSlice';
-import { initCredentials, jwtSignIn } from '../redux/slices/authSlice';
-import { VerifyPage } from '../screens/AuthScreens';
+import useAppSelector from 'hooks/useAppSelector';
+import useAppDispatch from 'hooks/useAppDispatch';
+import { UserScopes } from 'types/users';
+import { checkConnection } from 'redux/slices/connectionSlice';
+import { initCredentials, jwtSignIn } from 'redux/slices/authSlice';
+import { VerifyPage } from 'screens/AuthScreens';
 import AuthNavigation from './AuthNavigation';
 import BaseNavigation from './BaseNavigation';
 

@@ -21,6 +21,7 @@
     "@reduxjs/toolkit": "^1.6.1",
     "@types/axios": "^0.14.0",
     "axios": "^0.27.2",
+    "babel-plugin-module-resolver": "^5.0.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-plugin-airbnb-base": "^0.0.1-security",
@@ -36,7 +37,8 @@
     "react-native-svg": "12.3.0",
     "react-native-svg-transformer": "^1.0.0",
     "react-native-web": "~0.18.7",
-    "react-redux": "^7.2.4"
+    "react-redux": "^7.2.4",
+    "semver": "^7.3.8"
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",

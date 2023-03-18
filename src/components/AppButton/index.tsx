@@ -1,18 +1,46 @@
 import React from 'react';
-import { GestureResponderEvent, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { GestureResponderEvent, StyleProp, StyleSheet, Text, TextStyle, TouchableOpacity, ViewStyle } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
-import Colors from '../../utils/Colors';
-import TextStyles from '../../utils/TextStyles';
+import Colors from 'utils/Colors';
+import TextStyles from 'utils/TextStyles';
 
 interface AppButtonProps {
   onPress: (event: GestureResponderEvent) => void
   title: string
+  fullWidth?: boolean
   isArrow?: boolean
+  backgroundColor?: string
+  textColor?: string
+  style?: StyleProp<ViewStyle>
+  inverted?: boolean
+  disabled?: boolean
+  textStyle?: StyleProp<TextStyle>
 }
 
-const AppButton = ({ onPress, title, isArrow }: AppButtonProps) => (
-  <TouchableOpacity onPress={onPress} style={styles.appButtonContainer}>
-    <Text style={styles.appButtonText}>{title}</Text>
+const AppButton = ({ 
+  onPress, 
+  title, 
+  isArrow, 
+  fullWidth, 
+  style, 
+  textStyle,
+  backgroundColor = Colors.primary.normal, 
+  textColor = 'white',
+  inverted = false,
+  disabled = false,
+}: AppButtonProps) => (
+  <TouchableOpacity 
+    onPress={onPress} 
+    disabled={disabled}
+    style={{ 
+      ...styles.appButtonContainer, 
+      backgroundColor, 
+      ...(style as object),
+      ...(inverted) && { backgroundColor: Colors.primary.normal }, 
+      ...(fullWidth) && { width: '100%' }, 
+      ...(disabled) && { opacity: 0.7 },
+    }}>
+    <Text style={[styles.appButtonText, { color: textColor, ...(inverted) && { color: 'white' } }, textStyle]}>{title}</Text>
     {
       isArrow && <AntDesign name='caretright' size={25} color='white' />
     }
